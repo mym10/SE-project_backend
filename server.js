@@ -1,25 +1,25 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const connectDB = require("./db");
+  const express = require("express");
+  const bodyParser = require("body-parser");
+  const cors = require("cors");
+  const connectDB = require("./db");
 
-// Import routes
-const authRoutes = require("./routes/authRoutes");
+  // Import routes
+  const authRoutes = require("./routes/authRoutes");
 
-const app = express();
-const PORT = 5000;
+  const app = express();
+  const PORT = 5000;
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+  // Middleware
+  app.use(cors());
+  app.use(bodyParser.json());
 
-// Connect to MongoDB
-connectDB();
+  // Connect to MongoDB
+  connectDB();
 
-// Use Routes
-app.use("/auth", authRoutes); // Prefix all auth-related routes with "/auth"
+  // Use Routes
+  app.use("/auth", authRoutes); // Prefix all auth-related routes with "/auth"
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+  // Start server
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
