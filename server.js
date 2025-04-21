@@ -17,7 +17,7 @@
   connectDB();
 
   // Use Routes
-  app.use("/auth", authRoutes); // Prefix all auth-related routes with "/auth"
+  app.use("/", authRoutes); // Prefix all auth-related routes with "/auth"
 
   // Start server
   app.listen(PORT, () => {
