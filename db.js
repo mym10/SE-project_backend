@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoURI = "mongodb://localhost:27017/student_scores"; // Replace with your actual connection string
+const mongoURI = "mongodb+srv://myth:2TbSL11j9CECYPfo@vosscluster.mp0lp.mongodb.net/student_scores"; // Replace with your actual connection string
 
 const connectDB = async () => {
   try {
