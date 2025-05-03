@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 // SIGNUP ROUTE
 router.post("/signup", async (req, res) => {
-  const { Username, Name = Username, Password, Role, Branch } = req.body; // Default Name to Username if Name isn't provided.
+  const { Username, Name, Password, Role, Branch } = req.body; // Default Name to Username if Name isn't provided.
 
   try {
       const existingUser = await User.findOne({ Username }).lean();
