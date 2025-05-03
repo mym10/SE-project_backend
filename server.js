@@ -5,6 +5,8 @@
 
   // Import routes
   const authRoutes = require("./routes/authRoutes");
+  const semesterRoutes = require("./routes/semesterRoutes");
+  const studentRoutes = require("./routes/studentRoutes");
 
   const app = express();
   const PORT = 5000;
@@ -17,7 +19,10 @@
   connectDB();
 
   // Use Routes
+  app.use("/gpa-distribution", semesterRoutes);
   app.use("/", authRoutes); 
+  app.use("/", studentRoutes);
+  app.use("/", semesterRoutes);
 
   // Start server
   app.listen(PORT, () => {
