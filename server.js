@@ -1,3 +1,4 @@
+
   const express = require("express");
   const bodyParser = require("body-parser");
   const cors = require("cors");
@@ -7,6 +8,7 @@
   const authRoutes = require("./routes/authRoutes");
   const semesterRoutes = require("./routes/semesterRoutes");
   const studentRoutes = require("./routes/studentRoutes");
+  const subjectRoutes = require("./routes/subjectRoutes");
 
   const app = express();
   const PORT = 5000;
@@ -23,6 +25,7 @@
   app.use("/", authRoutes); 
   app.use("/", studentRoutes);
   app.use("/", semesterRoutes);
+  app.use("/", subjectRoutes);
 
   // Start server
   app.listen(PORT, () => {
