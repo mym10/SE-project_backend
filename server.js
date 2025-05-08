@@ -9,6 +9,8 @@
   const semesterRoutes = require("./routes/semesterRoutes");
   const studentRoutes = require("./routes/studentRoutes");
   const subjectRoutes = require("./routes/subjectRoutes");
+  const professorRoutes = require("./routes/professorRoutes");
+
 
   const app = express();
   const PORT = 5000;
@@ -22,6 +24,7 @@
 
   // Use Routes
   app.use("/gpa-distribution", semesterRoutes);
+  app.use("/professors", professorRoutes); 
   app.use("/", authRoutes); 
   app.use("/", studentRoutes);
   app.use("/", semesterRoutes);
