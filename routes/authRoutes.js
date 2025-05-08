@@ -58,9 +58,9 @@ router.post("/signup", async (req, res) => {
         await newUser.save();
 
         res.json({
-            message: `${Role} signup successful!`,
-            redirect: `/${Username}`,
-            role: Role,
+            message: `${role} login successful!`,
+            Role: role,
+            redirect: role === "Professor" ? `/professor/${Username}` : `/${Username}`,
         });
     } catch (err) {
         console.error("Signup Error:", err);
@@ -97,8 +97,8 @@ router.post("/login", async (req, res) => {
 
         res.json({
             message: `${role} login successful!`,
-            redirect: `/${role.toLowerCase()}/${Username}`,
-            role,
+            Role: role,
+            redirect: role === "Professor" ? `/professor/${Username}` : `/${Username}`,
         });
     } catch (err) {
         console.error("Login Error:", err);
