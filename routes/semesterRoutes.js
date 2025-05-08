@@ -3,7 +3,13 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 // List of known course collections
-const collections = ["CS1101", "CS1102", "CS1103", "CS1201","CS1202", "CS1203", "CS2101", "CS2103", "CS2202", "CS2203", "CS3101", "CS3102", "CS3201", "CS3202", "CS3203", "CS3214", "HS1202", "HS2102", "MA1101", "MA2201", ];
+const collections = [
+  "CS1101", "CS1102", "CS1103", "CS1201", "CS1202", "CS1203",
+  "CS2101", "CS2103", "CS2202", "CS2203", "CS3101", "CS3102",
+  "CS3201", "CS3202", "CS3203", "CS3214",
+  "HS1201", "HS1202", "HS2102",   
+  "MA1101", "MA2201"
+];
 
 // Helper: Get semester from course code
 const getSemesterFromCode = (code) => {
@@ -94,8 +100,11 @@ router.get("/:username/:semNumber", async (req, res) => {
   for (const collName of collections) {
     try {
       const model = mongoose.connection.collection(collName);
-      const student = await model.findOne({ StudentID: username });
-
+      const student = await model.findOne({
+        StudentID: { $regex: `^${username}$`, $options: "i" }
+      });
+  
+  
       if (student) {
         const semester = getSemesterFromCode(collName);
         if (!semesterData[semester]) semesterData[semester] = [];
