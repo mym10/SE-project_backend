@@ -10,7 +10,7 @@
   const studentRoutes = require("./routes/studentRoutes");
   const subjectRoutes = require("./routes/subjectRoutes");
   const professorRoutes = require("./routes/professorRoutes");
-
+  const peerMatchingRouter = require("./routes/peerMatching"); 
 
   const app = express();
   const PORT = 5000;
@@ -26,6 +26,7 @@
   app.use("/gpa-distribution", semesterRoutes);
   app.use("/professors", professorRoutes); 
   app.use("/", authRoutes); 
+  app.use("/", peerMatchingRouter);
   app.use("/", studentRoutes);
   app.use("/", semesterRoutes);
   app.use("/", subjectRoutes);
@@ -35,3 +36,4 @@
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
+ 
