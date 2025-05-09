@@ -57,12 +57,16 @@ A full-stack web application that visualizes student academic performance across
 #### 1. Clone the Repositories
 
 # Frontend
+```bash
 git clone https://github.com/mym10/SE_project_frontend
 cd SE_project_frontend
+```
 
 # Backend
+```bash
 git clone https://github.com/mym10/SE-project_backend.git
 cd SE-project_backend
+```
 
 
 # Getting Started with Create React App
@@ -73,7 +77,6 @@ cd SE-project_backend
 
 ### 2. Install Frontend Dependencies & Start the Frontend
 ````bash
-cd SE_project_frontend
 npm install
 npm start
 ````
@@ -81,7 +84,6 @@ npm start
 ### 3. Install Backend Dependencies & Start the Backend Server
 
 ```bash
-cd SE-project_backend
 npm install
 node server.js
 ```
